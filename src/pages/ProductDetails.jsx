@@ -9,6 +9,10 @@ const ProductDetails = () => {
     const [loading, setLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+    const scrollContainerRef = React.useRef(null);
+    const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+
     useEffect(() => {
         window.scrollTo(0, 0);
         const loadProduct = async () => {
@@ -18,6 +22,40 @@ const ProductDetails = () => {
         };
         loadProduct();
     }, [id]);
+
+    // Handle Auto-scroll
+    useEffect(() => {
+        if (!product?.images?.length || !isAutoScrolling) return;
+
+        const interval = setInterval(() => {
+            const nextIndex = (selectedImageIndex + 1) % product.images.length;
+            scrollToImage(nextIndex);
+        }, 3000);
+
+        return () => clearInterval(interval);
+    }, [selectedImageIndex, isAutoScrolling, product]);
+
+    const scrollToImage = (index) => {
+        setSelectedImageIndex(index);
+        if (scrollContainerRef.current) {
+            const width = scrollContainerRef.current.offsetWidth;
+            scrollContainerRef.current.scrollTo({
+                left: width * index,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    const handleScroll = () => {
+        if (scrollContainerRef.current) {
+            const width = scrollContainerRef.current.offsetWidth;
+            const scrollLeft = scrollContainerRef.current.scrollLeft;
+            const newIndex = Math.round(scrollLeft / width);
+            if (newIndex !== selectedImageIndex) {
+                setSelectedImageIndex(newIndex);
+            }
+        }
+    };
 
     if (loading) {
         return (
@@ -36,18 +74,75 @@ const ProductDetails = () => {
         );
     }
 
+    // Determine images list (use single image if array not present)
+    const images = product.images && product.images.length > 0 ? product.images : [product.image];
+
     return (
         <div className="min-h-screen bg-gray-50 pt-32 pb-16">
             <div className="container mx-auto px-4">
                 <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-                        {/* Image Section */}
-                        <div className="relative aspect-[3/4] md:aspect-auto md:h-[600px]">
-                            <img
-                                src={product.image}
-                                alt={product.name}
-                                className="w-full h-full object-cover"
-                            />
+                        {/* Image Section - Carousel */}
+                        <div className="flex flex-col gap-4">
+                            <div
+                                className="relative aspect-[3/4] rounded-lg overflow-hidden bg-gray-100 group"
+                                onMouseEnter={() => setIsAutoScrolling(false)}
+                                onMouseLeave={() => setIsAutoScrolling(true)}
+                                onTouchStart={() => setIsAutoScrolling(false)}
+                                onTouchEnd={() => setIsAutoScrolling(true)}
+                            >
+                                <div
+                                    ref={scrollContainerRef}
+                                    onScroll={handleScroll}
+                                    className="flex w-full h-full overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+                                    style={{ scrollBehavior: 'smooth' }}
+                                >
+                                    {images.map((img, idx) => (
+                                        <div key={idx} className="w-full h-full flex-shrink-0 snap-center">
+                                            <img
+                                                src={img}
+                                                alt={`${product.name} - View ${idx + 1}`}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Carousel Indicators */}
+                                {images.length > 1 && (
+                                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                                        {images.map((_, idx) => (
+                                            <button
+                                                key={idx}
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    scrollToImage(idx);
+                                                }}
+                                                className={`w-2 h-2 rounded-full transition-all ${idx === selectedImageIndex ? 'bg-white w-4' : 'bg-white/50 hover:bg-white/80'
+                                                    } shadow-sm`}
+                                            />
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Thumbnails */}
+                            {images.length > 1 && (
+                                <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide snap-x">
+                                    {images.map((img, idx) => (
+                                        <button
+                                            key={idx}
+                                            onClick={() => scrollToImage(idx)}
+                                            className={`relative flex-shrink-0 w-20 h-20 rounded-md overflow-hidden border-2 transition-all snap-start ${idx === selectedImageIndex
+                                                ? 'border-black opacity-100'
+                                                : 'border-transparent opacity-70 hover:opacity-100'
+                                                }`}
+                                        >
+                                            <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
                         </div>
 
                         {/* Details Section */}

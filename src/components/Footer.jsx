@@ -59,17 +59,17 @@ const Footer = () => {
                         <div className="space-y-4 text-gray-300">
                             <p className="flex items-center">
                                 <span className="mr-3 text-gold-500">📍</span>
-                                Mithi Khadi Bazar, Limbayat, Surat - 395 210
+                                Pratapnagar Main Road, Mithi Khadi Bazar, Limbayat, Surat - 395 210
                             </p>
                             <p className="flex items-center">
                                 <span className="mr-3 text-gold-500">📞</span>
                                 <a href="tel:7046949205">
-                                    +91 70469 49205
+                                    +91 70469 49205 - Tap to Call
                                 </a>
                             </p>
                             <p className="flex items-center">
                                 <span className="mr-3 text-gold-500">✉️</span>
-                                info@hijabstore.com
+                                moingarana24@gmail.com
                             </p>
                             <a
                                 href="https://wa.me/7046949205"
@@ -145,7 +145,12 @@ const Footer = () => {
                 </div>
 
                 <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-                    <p>&copy; 2025 New Hijab Collection. All rights reserved.</p>
+                    <p className="mb-2">&copy; 2025 New Hijab Collection. All rights reserved.</p>
+                    <div className="flex justify-center items-center space-x-4 text-xs text-gray-600">
+                        <span>Owner: Moin Garana</span>
+                        <span>•</span>
+                        <span>Developer: <a href="https://garanaibrahim7.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-gold-500 transition-colors">Ibrahim Garana</a></span>
+                    </div>
                 </div>
             </div>
         </footer>

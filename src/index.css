@@ -15,3 +15,13 @@ body {
 .text-gold-glow {
   text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
