@@ -1,0 +1,36 @@
+
+> hijab-shop@0.0.0 build
+> vite build
+
+[36mvite v7.2.6 [32mbuilding client environment for production...[36m[39m
+transforming...
+[33m[vite:css][postcss] @import must precede all other statements (besides @charset or empty @layer)
+8  |  }
+9  |  
+10 |  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+11 |  
+12 |  body {[39m
+[32m✓[39m 48 modules transformed.
+[31m✗[39m Build failed in 1.65s
+[31merror during build:
+[31msrc/App.jsx (5:7): "default" is not exported by "src/components/Quotes.jsx", imported by "src/App.jsx".[31m
+file: [36mC:/Users/iggar/OneDrive/Desktop/New Hijab/src/App.jsx:5:7[31m
+[33m
+3: import Header from './components/Header';
+4: import Hero from './components/Hero';
+5: import Quotes from './components/Quotes';
+          ^
+6: import Collection from './components/Collection';
+7: import Footer from './components/Footer';
+[31m
+    at getRollupError (file:///C:/Users/iggar/OneDrive/Desktop/New%20Hijab/node_modules/rollup/dist/es/shared/parseAst.js:401:41)
+    at error (file:///C:/Users/iggar/OneDrive/Desktop/New%20Hijab/node_modules/rollup/dist/es/shared/parseAst.js:397:42)
+    at Module.error (file:///C:/Users/iggar/OneDrive/Desktop/New%20Hijab/node_modules/rollup/dist/es/shared/node-entry.js:16956:16)
+    at Module.traceVariable (file:///C:/Users/iggar/OneDrive/Desktop/New%20Hijab/node_modules/rollup/dist/es/shared/node-entry.js:17412:29)
+    at ModuleScope.findVariable (file:///C:/Users/iggar/OneDrive/Desktop/New%20Hijab/node_modules/rollup/dist/es/shared/node-entry.js:15076:39)
+    at ReturnValueScope.findVariable (file:///C:/Users/iggar/OneDrive/Desktop/New%20Hijab/node_modules/rollup/dist/es/shared/node-entry.js:5649:38)
+    at FunctionBodyScope.findVariable (file:///C:/Users/iggar/OneDrive/Desktop/New%20Hijab/node_modules/rollup/dist/es/shared/node-entry.js:5649:38)
+    at Identifier.bind (file:///C:/Users/iggar/OneDrive/Desktop/New%20Hijab/node_modules/rollup/dist/es/shared/node-entry.js:5423:40)
+    at CallExpression.bind (file:///C:/Users/iggar/OneDrive/Desktop/New%20Hijab/node_modules/rollup/dist/es/shared/node-entry.js:2809:28)
+    at CallExpression.bind (file:///C:/Users/iggar/OneDrive/Desktop/New%20Hijab/node_modules/rollup/dist/es/shared/node-entry.js:12123:15)[39m
