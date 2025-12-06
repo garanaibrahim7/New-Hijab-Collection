@@ -59,7 +59,7 @@ const Footer = () => {
                         <div className="space-y-4 text-gray-300">
                             <p className="flex items-center">
                                 <span className="mr-3 text-gold-500">📍</span>
-                                123 Hijab Street, Fashion District, City
+                                Mithi Khadi Bazar, Limbayat, Surat - 395 210
                             </p>
                             <p className="flex items-center">
                                 <span className="mr-3 text-gold-500">📞</span>
@@ -131,6 +131,7 @@ const Footer = () => {
 
                     {/* Map */}
                     <div className="h-64 md:h-auto rounded-lg overflow-hidden">
+                        <h3 className="text-2xl font-bold text-gold-500 mb-6 uppercase tracking-wider">Our Location</h3>
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d336.9122133147429!2d72.85605463430201!3d21.17759440461225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1764935131102!5m2!1sen!2sin"
                             width="100%"

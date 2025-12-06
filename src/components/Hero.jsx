@@ -24,7 +24,9 @@ const Hero = () => {
             <div className="absolute inset-0 flex items-center justify-center md:justify-end md:pr-20">
                 <div className="text-center text-white p-6 max-w-4xl">
                     <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tighter animate-fade-in-up drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]">
-                        Elegant <span className="text-gold-400 font-serif italic drop-shadow-md">Modesty</span>
+                        <span className="text-gold-400 font-serif italic drop-shadow-md">Modesty</span>
+                        {' '}and {' '}
+                        <span className="text-gold-400 font-serif italic drop-shadow-md">Faith</span>
                     </h1>
                     <p className="text-xl md:text-2xl lg:text-3xl font-light tracking-wide mb-10 animate-fade-in-up delay-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] text-gray-100">
                         Discover the timeless beauty of Islamic Womenware

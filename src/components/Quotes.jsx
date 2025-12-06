@@ -11,7 +11,7 @@ const Quotes = () => {
             <div className="container mx-auto px-4 relative z-10">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif italic text-gray-800 leading-relaxed mb-8">
-                        "Modesty is not just an attire, it is an elegance that speaks louder than words."
+                        "Modesty(Haya) is not just an attire, it is an elegance that speaks louder than words."
                     </h2>
                     <div className="flex items-center justify-center space-x-4">
                         <div className="h-px w-12 bg-gold-500"></div>
