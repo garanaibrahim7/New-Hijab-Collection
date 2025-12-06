@@ -147,7 +147,7 @@ const Footer = () => {
                 <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
                     <p className="mb-2">&copy; 2025 New Hijab Collection. All rights reserved.</p>
                     <div className="flex justify-center items-center space-x-4 text-xs text-gray-600">
-                        <span>Owner: Moin Garana</span>
+                        <span>Owner: <a href='/admin' target="_blank" rel="noopener noreferrer" className="hover:text-gold-500 transition-colors">Moin Garana</a></span>
                         <span>•</span>
                         <span>Developer: <a href="https://garanaibrahim7.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-gold-500 transition-colors">Ibrahim Garana</a></span>
                     </div>
